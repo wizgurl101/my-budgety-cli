@@ -12,7 +12,7 @@ func main() {
 	var rootCmd = &cobra.Command{
 		Use:   "mybudgetycli",
 		Short: "My Budgety CLI",
-		Long:  "My Budgety CLI is a command-line tool for managing your budget",
+		Long:  "My Budgety CLI is a command-line tool to manage your budget and expenses.",
 	}
 
 	var filePaths []string
@@ -25,7 +25,7 @@ func main() {
 				return
 			}
 
-			csvUtils.MergeCsvFiles(cmd)
+			csvUtils.MergeCsvFiles(cmd, filePaths)
 		},
 	}
 	mergeCsvFiles.Flags().StringSliceVarP(&filePaths, "files", "f", []string{}, "Input CSV files to merge")

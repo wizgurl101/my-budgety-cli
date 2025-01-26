@@ -10,3 +10,9 @@ are in this folder at a time.
 ```Golang
     go run . merge-csv
 ```
+
+## Set the budget amount for a given year and starting month
+
+```Golang
+    go run . set-year-budget
+```

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 )
 
 type CreditCardStatememt struct {
@@ -98,14 +99,18 @@ func MergeCsvFiles() {
 	file2path := "./files/" + files[1].Name()
 	file2Data := GetDataFromCsvFile(file2path)
 
-	mergedData := []CreditCardStatememt{}
+	var mergedData []CreditCardStatememt
 	if len(file2Data) > len(file1Data) {
 		mergedData = removeDuplicates(file1Data, file2Data)
 	} else {
 		mergedData = removeDuplicates(file2Data, file1Data)
 	}
 
-	outputFile, err := os.Create("./output/merged.csv")
+	currentDate := time.Now()
+	formattedDate := currentDate.Format("2006-01-02")
+	outputFileName := "./output/" + formattedDate + "-merged.csv"
+
+	outputFile, err := os.Create(outputFileName)
 	if err != nil {
 		fmt.Printf("Error creating output file: %v\n", err)
 		return

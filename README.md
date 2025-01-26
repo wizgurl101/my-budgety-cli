@@ -5,5 +5,5 @@ CLI program for my budgety project.
 ### How to use CLI
 
 ```Golang
-    go run . merge-csv --flag file1.csv,file2.csv
+    go run . merge-csv --flag path-to-file1.csv,path-to-file2.csv
 ```

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	csvUtils "my-budgety-cli/csvUtils"
+	http "my-budgety-cli/http"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -40,7 +41,8 @@ func main() {
 				return
 			}
 
-			fmt.Printf("Set Budget For Year")
+			default_budget_amount := 2000.00
+			http.SetYearBudgetAmount(year, startMonth, default_budget_amount)
 		},
 	}
 	rootCmd.AddCommand(setYearBudgetAmount)

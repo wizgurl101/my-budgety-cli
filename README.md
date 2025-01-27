@@ -10,3 +10,11 @@ are in this folder at a time.
 ```Golang
     go run . merge-csv
 ```
+
+## Set the budget amount for a given year and starting month
+
+This set each month of a given year budget to a default of 2000 to My Budgety Database
+
+```Golang
+    go run . set-year-budget --year 2025 --start-month 3
+```
